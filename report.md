@@ -105,10 +105,16 @@ graph TB
 - jQuery UI
 
 **Web Server:**
-- Apache (via XAMPP)
-- phpMyAdmin for database management
+- Apache (via XAMPP/Standalone)
+- Database Management: phpMyAdmin or MySQL Workbench
+- MySQL Server (bundled with XAMPP or standalone installation)
 
-### 2.2 System Requirements
+**Alternative Setup Options:**
+- **Option 1:** XAMPP (Apache + MySQL) + phpMyAdmin (default)
+- **Option 2:** XAMPP (Apache + MySQL) + MySQL Workbench (recommended)
+- **Option 3:** Standalone MySQL Server + MySQL Workbench + Apache
+
+### 2.3 System Requirements
 
 **Server Requirements:**
 - PHP Version: 7.4 or higher
@@ -713,18 +719,38 @@ SELECT * FROM tblvisitor WHERE date(EnterDate) BETWEEN '$fromdate' AND '$todate'
 ## 12. INSTALLATION & SETUP GUIDE
 
 ### 12.1 Prerequisites
-1. Install XAMPP/WAMP/LAMP server
-2. Ensure PHP 7.4+ and MySQL 5.6+ are installed
-3. Web browser (Chrome, Firefox, Edge)
+
+**Option A - Using XAMPP (Easiest):**
+1. Install XAMPP (includes Apache, PHP, MySQL)
+2. Web browser (Chrome, Firefox, Edge)
+3. Optional: Install MySQL Workbench for better database management
+
+**Option B - Standalone Setup (Professional):**
+1. Install MySQL Server (standalone)
+2. Install MySQL Workbench
+3. Install Apache Web Server
+4. Install PHP 7.4+
+5. Web browser (Chrome, Firefox, Edge)
 
 ### 12.2 Installation Steps
 
 **Step 1: Database Setup**
-1. Start Apache and MySQL services
-2. Open phpMyAdmin (http://localhost/phpmyadmin)
+
+**Using phpMyAdmin (XAMPP Default):**
+1. Start Apache and MySQL services from XAMPP Control Panel
+2. Open phpMyAdmin: http://localhost/phpmyadmin
 3. Create new database named `avmsdb`
 4. Import the SQL file: `SQL File/avmsdb.sql`
 5. Verify all 4 tables are created successfully
+
+**Using MySQL Workbench (Recommended):**
+1. Start MySQL Server (XAMPP Control Panel or standalone service)
+2. Open MySQL Workbench
+3. Connect to MySQL Server (localhost:3306, user: root)
+4. Click "Create Schema" → Name: `avmsdb` → Apply
+5. File → Run SQL Script → Select `SQL File/avmsdb.sql` → Execute
+6. Verify all 4 tables are created successfully
+7. Bonus: Use Designer tab to view ER diagram of your database
 
 **Step 2: File Configuration**
 1. Extract project files to web server directory
